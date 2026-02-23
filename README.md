@@ -51,3 +51,11 @@ You can verify the end-to-end functionality of the Job Queue on the Solana Explo
 ```bash
 yarn run ts-node client.ts
 ```
+
+### Tradeoffs & Constraints
+While an on-chain job queue provides unparalleled transparency and immutability, it comes with several tradeoffs:
+- **Cost:** Every state transition (create, assign, complete) requires paying transaction fees (SOL). This is significantly more expensive than running a centralized Redis or PostgreSQL instance.
+- **Latency:** State updates are subject to Solana's block times (~400ms). It cannot match the sub-millisecond latency of centralized in-memory queues.
+- **Payload Size Limits:** Solana transaction size limits and account size constraints restrict the amount of data a job can hold. Large payloads must be stored off-chain (e.g., Arweave, IPFS) with only a reference URI stored on-chain.
+- **Write Contention:** A naive implementation using a single global queue counter (`jobCount` on a single PDA) can become a bottleneck under high load due to write contention. Production systems would need to shard queues or use multiple concurrent trackers.
+- **Privacy:** All job payloads and worker assignments are public by default. If jobs contain sensitive data, the payload must be encrypted off-chain before submission.
