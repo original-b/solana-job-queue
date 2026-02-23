@@ -30,3 +30,24 @@ Built with Anchor.
 anchor build
 anchor test
 ```
+
+## Devnet Deployment
+
+The Job Queue program is successfully deployed and running on the Solana Devnet.
+
+- **Program ID:** `HAUSpRwSCmmDH66xs4sVaTx5u4uiqTdvjcG2notGa4Gy`
+- **Network:** Devnet
+
+### Example Transactions
+You can verify the end-to-end functionality of the Job Queue on the Solana Explorer (Devnet):
+
+- **Create Job:** [YhUpa361u1R91TKKuNTLMCTfC5WTYCGNGwy338Eh7hEBzD5skxxaQNu5BuwSszUikQfSL9MNPCBQWfcHnKBpS5k](https://explorer.solana.com/tx/YhUpa361u1R91TKKuNTLMCTfC5WTYCGNGwy338Eh7hEBzD5skxxaQNu5BuwSszUikQfSL9MNPCBQWfcHnKBpS5k?cluster=devnet)
+- **Assign Job:** [2bdtFz3UgY1ZgUphRpD854vW7wxQR1VJm8imtqT1qbPYeC5touXiscP3nmGmi1VhpYfQRn4mnRwu2T9umdBCyne](https://explorer.solana.com/tx/2bdtFz3UgY1ZgUphRpD854vW7wxQR1VJm8imtqT1qbPYeC5touXiscP3nmGmi1VhpYfQRn4mnRwu2T9umdBCyne?cluster=devnet)
+- **Complete Job:** [4MZetKmgs6it1qYjjCX9PWmru11ypgRMMt26nHJDyq8xT4Pqs2pNNuwGJEUGmMe3mQtEHaxbueSEWPDDNnHug5ZX](https://explorer.solana.com/tx/4MZetKmgs6it1qYjjCX9PWmru11ypgRMMt26nHJDyq8xT4Pqs2pNNuwGJEUGmMe3mQtEHaxbueSEWPDDNnHug5ZX?cluster=devnet)
+
+## How to Test on Devnet
+1. Set your Anchor provider URL to `https://api.devnet.solana.com`.
+2. Run the client script:
+```bash
+yarn run ts-node client.ts
+```
